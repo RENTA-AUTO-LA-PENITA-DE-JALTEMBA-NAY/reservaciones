@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recepcionista automatics Virtual - Renta de Autos</title>
 
-  <!-- Actualización para forzar cache - 08/jun -->
   <style>
     body {
       background: #f4faff;
@@ -33,10 +32,25 @@
       margin-bottom: 30px;
       color: #333;
     }
-  </style>
-</head>
-<body>
 
+    /* Estilo personalizado del webchat */
+    #webchat .bpWebchat {
+      position: unset;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+    }
+    #webchat .bpFab {
+      display: none; /* Oculta la burbuja flotante */
+    }
+  </style>
+
+  <!-- Script de Botpress -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+</head>
+
+<body>
   <div class="container">
     <div style="font-size: 40px;">🚗 🚙 🚐 🚘</div>
     <h1>Recepcionista Virtual - Renta de Autos</h1>
@@ -44,13 +58,13 @@
       Prueba profesional de chatbot operativo 24/7.<br>
       Atención personalizada para tu reserva.
     </div>
-    <p>Interactúa 👉 en la burbuja inferior derecha</p>
+    <p>Interactúa 👇 con el asistente aquí debajo</p>
+
+    <!-- Contenedor del chatbot -->
+    <div id="webchat" style="width: 500px; height: 500px; margin: 0 auto;"></div>
   </div>
 
-  <!-- Webchat -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-  <div id="webchat" style="width: 100%; height: 100%;"></div>
-
+  <!-- Inicialización -->
   <script>
     window.botpress.on("webchat:ready", () => {
       window.botpress.open();
@@ -60,6 +74,10 @@
       "botId": "14ecb920-37de-470f-8c87-3be6f02b7535",
       "configuration": {
         "website": {},
+        "email": {},
+        "phone": {},
+        "termsOfService": {},
+        "privacyPolicy": {},
         "color": "#5eb1ef",
         "variant": "soft",
         "themeMode": "light",
@@ -70,6 +88,5 @@
       "selector": "#webchat"
     });
   </script>
-
 </body>
 </html>
